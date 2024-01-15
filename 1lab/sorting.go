@@ -12,9 +12,20 @@ func main() {
 	unsortedList := createArray(8)
 
 	fmt.Println(unsortedList)
+
+	defer timer("main")()
 	fmt.Println("Insertion sort: ", insertionSort(unsortedList))
+	time.Sleep(time.Second * 2)
 	//fmt.Println("Final", mergeSort(unsortedList))
 
+}
+
+// https://stackoverflow.com/questions/45766572/is-there-an-efficient-way-to-calculate-execution-time-in-golang
+func timer(name string) func() {
+	start := time.Now()
+	return func() {
+		fmt.Printf("%s too %v\n", name, time.Since(start))
+	}
 }
 
 func createArray(arrayLength int) []int {
@@ -43,9 +54,9 @@ func insertionSort(array []int) []int {
 
 func mergeSort(array []int) []int {
 	if len(array) > 1 {
-		
+
 		middlePoint := len(array) / 2
-		
+
 		nArray1 := array[0:middlePoint]
 		nArray2 := array[middlePoint:]
 		fmt.Println(nArray1)
@@ -56,8 +67,8 @@ func mergeSort(array []int) []int {
 		output := []int{}
 		output = merge(nArray1, nArray2)
 		return output
-	} 
-	
+	}
+
 	return array
 }
 
@@ -69,14 +80,14 @@ func merge(leftArray []int, rightArray []int) []int {
 	i := 0
 	j := 0
 	for i < len(leftArray) && j < len(rightArray) {
-			fmt.Println("Comparing", leftArray[i], "and", rightArray[j])
-			if leftArray[i] < rightArray[j] {
-				output = append(output, leftArray[i])
-				i++
-			} else {
-				output = append(output, rightArray[j])
-				j++
-			}
+		fmt.Println("Comparing", leftArray[i], "and", rightArray[j])
+		if leftArray[i] < rightArray[j] {
+			output = append(output, leftArray[i])
+			i++
+		} else {
+			output = append(output, rightArray[j])
+			j++
+		}
 	}
 
 	for ; i < len(leftArray); i++ {
