@@ -25,49 +25,51 @@ def insertionSort(array : list) -> list[int]:
 #unSortedList = createArray(8)
 #sortedList = insertionSort(unSortedList)
 
+counter = 0
 
 def mergeSort(array : list) -> list[int] and int:
-	steps = 0
+	global counter
 	if len(array) > 1:
 		middlePoint = int(len(array) / 2)
 
 		nArray1 = array[0:middlePoint]
 		nArray2 = array[middlePoint:]
-		nArray1, steps = mergeSort(nArray1)
-		nArray2, steps = mergeSort(nArray2)
+		nArray1 = mergeSort(nArray1)
+		nArray2 = mergeSort(nArray2)
 
 		output = merge(nArray1, nArray2)
-		steps += 6 + steps
-		return (output, steps)
-	return (array, steps)
+		counter += 6
+		return output
+	return array
 
-def merge(leftArray : list[int], rightArray : list[int]) -> list[int] and int:
-	steps = 0
+def merge(leftArray : list[int], rightArray : list[int]) -> list[int]:
+	global counter
 	output = list()
 	i = j = 0
-	steps += 2
+	counter += 2
 	while i < len(leftArray) and j < len(rightArray):
 
 		if leftArray[i] < rightArray[j]:
 			output.append(leftArray[i])
 			i += 1
-			steps += 2
+			counter += 2
 		else:
 			output.append(rightArray[j])
 			j += 1
-			steps += 2
+			counter += 2
 	
 	for _ in range(i, len(leftArray)):
 		output.append(leftArray[_])
-		steps += 1
+		counter += 1
 	
 	for _ in range(j, len(rightArray)):
 		output.append(rightArray[_])
-		steps += 1
+		counter += 1
 	#print(f"merged into {output}")
-	return output#, steps
+	return output
 	
-#unSortedList = createArray(8)
-#print(unSortedList)
-#sortedList = mergeSort(unSortedList)
-#print(sortedList[0], sortedList[1])
+	
+unSortedList = createArray(8)
+print(unSortedList)
+sortedList = mergeSort(unSortedList)
+print(f'Counter is {counter}')
