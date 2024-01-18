@@ -1,9 +1,10 @@
-def quicksort(liste, start, slutt, steg=0):
+def quicksort(liste, start, slutt):
+    steg = 0
     if start < slutt:
         midt, partition_steg = partition(liste, start, slutt)
         steg += partition_steg
-        quicksort(liste, start, midt-1, steg)
-        quicksort(liste, midt+1, slutt, steg)
+        steg += quicksort(liste, start, midt-1)
+        steg += quicksort(liste, midt+1, slutt)
     return steg
 
 
