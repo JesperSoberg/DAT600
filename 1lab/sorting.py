@@ -1,6 +1,7 @@
 from random import shuffle
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import time
 
 def createArray(arrayLength : int) -> list[int]:
 	unSortedList = list()
@@ -11,7 +12,7 @@ def createArray(arrayLength : int) -> list[int]:
 
 
 unSortedList = createArray(4)
-#print(unSortedList)
+print(unSortedList)
 
 def insertionSort(array : list) -> list[int]:
 	for _ in range(len(array)):
@@ -19,11 +20,13 @@ def insertionSort(array : list) -> list[int]:
 		while j > 0 and array[j-1] > array[j]:
 			array[j-1], array[j] = array[j], array[j-1]
 			j -= 1
-	print(f"Sorted:  {array}")
 	return array
 
-#unSortedList = createArray(8)
-#sortedList = insertionSort(unSortedList)
+start = time.time()
+unSortedList = createArray(8)
+sortedList = insertionSort(unSortedList)
+print(f'Insertionsort: {unSortedList}, %s seconds' % (time.time() - start))
+
 
 counter = 0
 
@@ -71,5 +74,10 @@ def merge(leftArray : list[int], rightArray : list[int]) -> list[int]:
 	
 unSortedList = createArray(8)
 print(unSortedList)
+start = time.time()
 sortedList = mergeSort(unSortedList)
+print(f'Mergesort: {unSortedList}, %s seconds' % (time.time() - start))
 print(f'Counter is {counter}')
+
+
+print(" ###### python end ####")
