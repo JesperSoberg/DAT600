@@ -9,5 +9,5 @@ def heapsort(list):
     steps += n * math.log(n, 2)
     for i in range(len(list)):
         result.append(heapq.heappop(list))
-        steps += 1
+        steps += math.log(n, 2)
     return result
