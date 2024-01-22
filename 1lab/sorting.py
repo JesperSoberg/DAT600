@@ -20,11 +20,7 @@ def insertionSort(array : list) -> list[int]:
 	return array
 
 
-
-counter = 0
-
 def mergeSort(array : list) -> list[int] and int:
-	global counter
 	if len(array) > 1:
 		middlePoint = int(len(array) / 2)
 
@@ -34,34 +30,28 @@ def mergeSort(array : list) -> list[int] and int:
 		nArray2 = mergeSort(nArray2)
 
 		output = merge(nArray1, nArray2)
-		counter += 6
 		return output
 	return array
 
 def merge(leftArray : list[int], rightArray : list[int]) -> list[int]:
-	global counter
 	output = list()
 	i = j = 0
-	counter += 2
 	while i < len(leftArray) and j < len(rightArray):
 
 		if leftArray[i] < rightArray[j]:
 			output.append(leftArray[i])
 			i += 1
-			counter += 2
+
 		else:
 			output.append(rightArray[j])
 			j += 1
-			counter += 2
 	
 	for _ in range(i, len(leftArray)):
 		output.append(leftArray[_])
-		counter += 1
 	
 	for _ in range(j, len(rightArray)):
 		output.append(rightArray[_])
-		counter += 1
-	#print(f"merged into {output}")
+
 	return output
 	
 
