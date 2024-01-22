@@ -9,15 +9,16 @@ import (
 func main() {
 	//unsortedList := []int{2, 0, 1, 3}
 
-	unsortedList := createArray(8)
-
-	fmt.Println(unsortedList)
+	unsortedList := createArray(100000)
+	//fmt.Println(unsortedList)
 	defer timer("Insertionsort")()
-	fmt.Println("Insertion sort: ", insertionSort(unsortedList))
+	insertionSort(unsortedList)
+	//fmt.Println("Insertion sort: ", insertionSort(unsortedList))
 
 	defer timer("Mergesort")()
-	fmt.Println("Merge sort: ", mergeSort(unsortedList))
-
+	mergeSort(unsortedList)
+	//fmt.Println("Merge sort: ", mergeSort(unsortedList))
+	fmt.Println("##### Go end #####")
 }
 
 // https://stackoverflow.com/questions/45766572/is-there-an-efficient-way-to-calculate-execution-time-in-golang

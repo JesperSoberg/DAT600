@@ -11,9 +11,6 @@ def createArray(arrayLength : int) -> list[int]:
 	return unSortedList
 
 
-unSortedList = createArray(4)
-print(unSortedList)
-
 def insertionSort(array : list) -> list[int]:
 	for _ in range(len(array)):
 		j = _
@@ -22,10 +19,6 @@ def insertionSort(array : list) -> list[int]:
 			j -= 1
 	return array
 
-start = time.time()
-unSortedList = createArray(8)
-sortedList = insertionSort(unSortedList)
-print(f'Insertionsort: {unSortedList}, %s seconds' % (time.time() - start))
 
 
 counter = 0
@@ -71,13 +64,22 @@ def merge(leftArray : list[int], rightArray : list[int]) -> list[int]:
 	#print(f"merged into {output}")
 	return output
 	
-	
-unSortedList = createArray(8)
-print(unSortedList)
-start = time.time()
-sortedList = mergeSort(unSortedList)
-print(f'Mergesort: {unSortedList}, %s seconds' % (time.time() - start))
-print(f'Counter is {counter}')
 
 
-print(" ###### python end ####")
+
+if __name__ == "__main__":
+	unSortedList = createArray(100000)
+
+	start = time.time()
+	sortedList = insertionSort(unSortedList)
+	#print(f'Insertionsort: {unSortedList}, %s seconds' % (time.time() - start))
+	print(f'Insertionsort: %s seconds' % (time.time() - start))
+		
+	start = time.time()
+	sortedList = mergeSort(unSortedList)
+	#print(f'Mergesort: {sortedList}, %s seconds' % (time.time() - start))
+	print(f'Mergesort: %s seconds' % (time.time() - start))
+	#print(f'Counter is {counter}')
+
+
+	print("###### python end #####")
