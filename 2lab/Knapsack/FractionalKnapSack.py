@@ -4,5 +4,5 @@ def solveFractionalKnapSack(weights: list, prices: list, capacity: int):
 		pricePerKg = prices[i]/weights[i]
 		pricesPerKg.append((i, pricePerKg))
 
-	pricesPerKg.sort()
+	pricesPerKg.sort(key=lambda tuple: tuple[1])
 	print(pricesPerKg)
