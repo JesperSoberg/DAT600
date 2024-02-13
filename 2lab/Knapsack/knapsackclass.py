@@ -4,4 +4,4 @@ class KnapSack():
         self.id = KnapSack.id
         self.weight = weight
         self.price = price
-        id += 1
+        KnapSack.id += 1
