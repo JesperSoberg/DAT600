@@ -23,8 +23,9 @@ def defineKnapsackProblem():
 	for idx, weight in enumerate(weights):
 		print(f'Bag {idx}, weight {weight}, price {prices[idx]}')
 
-	capacity = input("What is the bags capacity?: ")
-	solveFractionalKnapSack(weights, prices, capacity)
+	capacity = int(input("What is the bags capacity?: "))
+	fraqSolution = solveFractionalKnapSack(weights, prices, capacity)
+	print(fraqSolution)
 
 if __name__ == "__main__":
 	defineKnapsackProblem()
