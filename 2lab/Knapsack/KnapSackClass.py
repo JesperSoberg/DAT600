@@ -7,13 +7,13 @@ class KnapSack:
 		self.ids = ids
 
 	def __lt__(self, otherSet):
-		return self.ids < otherSet
+		return self.ids < otherSet.ids
 	
 	def __le__(self, otherSet):
-		return self.ids <= otherSet
+		return self.ids <= otherSet.ids
 	
 	def __gt__(self, otherSet):
-		return self.ids > otherSet
+		return self.ids > otherSet.ids
 	
 	def __ge__(self, otherSet):
-		return self.ids >= otherSet
+		return self.ids >= otherSet.ids

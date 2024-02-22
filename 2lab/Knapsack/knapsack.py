@@ -4,6 +4,7 @@ i th item worth vi kr and weighs wi kg
 can carry at most W kg
 '''
 from FractionalKnapSack import solveFractionalKnapSack
+from planb import binaryKnapsack
 
 def defineKnapsackProblem():
 	weights = []
@@ -25,7 +26,9 @@ def defineKnapsackProblem():
 
 	capacity = int(input("What is the bags capacity?: "))
 	fraqSolution = solveFractionalKnapSack(weights, prices, capacity)
+	binarySolution = binaryKnapsack(weights, prices, capacity)
 	print(fraqSolution)
+	print(binarySolution)
 
 if __name__ == "__main__":
 	defineKnapsackProblem()
