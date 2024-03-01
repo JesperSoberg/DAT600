@@ -4,7 +4,7 @@ i th item worth vi kr and weighs wi kg
 can carry at most W kg
 '''
 from FractionalKnapSack import solveFractionalKnapSack
-from planb import binaryKnapsack
+from binaryKnapsack import binaryKnapsack
 
 def defineKnapsackProblem():
 	weights = []

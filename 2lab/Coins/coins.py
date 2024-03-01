@@ -1,7 +1,6 @@
 INFINITY = -1
 
 def CoinChange(coins, target):
-    coins.sort()
     solutions = {}
     return solveCoinChange(coins, target, solutions)
 
