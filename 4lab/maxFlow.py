@@ -21,7 +21,6 @@ if __name__ == "__main__":
 	V5V4 = LpVariable(name="V5V4", cat="Integer", lowBound=0)
 	V5T = LpVariable(name="V5T", cat="Integer", lowBound=0)
 
-	#obj = SV1 + SV2 + V1V3 + V1V4 + V2V3 + V2V5 + V3V1 + V3V5 +V4V3 + V4T + V5V4 + V5T
 	obj = V4T + V5T
 
 	model += obj
@@ -45,9 +44,7 @@ if __name__ == "__main__":
 	model += V1V4 + V5V4 == V4V3 + V4T
 	model += V2V5 + V3V5 == V5V4 + V5T
 	
-
 	
-
 	model.solve()
         
 	print(f"objective: {model.objective.value()}")
